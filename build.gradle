@@ -1,5 +1,7 @@
 plugins {
     id 'java-base'
+    id "org.springframework.boot" version "${springStarterVersion}"
+    id "org.sonarqube" version "4.3.0.3225"
 }
 
 wrapper {
