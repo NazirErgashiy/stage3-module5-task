@@ -54,14 +54,14 @@ public class TagController implements ModifiedBaseController<TagUpdateDto, TagDt
     })
     @Override
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     public TagDto getById(@PathVariable Long id) {
         return tagService.readById(id);
     }
 
     @ApiOperation(value = "Crete tag", response = NewsDto.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Tag successfully created"),
+            @ApiResponse(code = 201, message = "Tag successfully created"),
             @ApiResponse(code = 400, message = "Validation exception"),
             @ApiResponse(code = 404, message = "Tag not found"),
             @ApiResponse(code = 500, message = "Application failed to process the request")

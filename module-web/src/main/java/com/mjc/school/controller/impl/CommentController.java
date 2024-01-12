@@ -54,14 +54,14 @@ public class CommentController implements ModifiedBaseController<CommentUpdateDt
     })
     @Override
     @GetMapping("/{comment-id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     public CommentDto getById(@PathVariable("comment-id") Long id) {
         return commentService.readById(id);
     }
 
     @ApiOperation(value = "Crete comment", response = CommentDto.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Comment successfully created"),
+            @ApiResponse(code = 201, message = "Comment successfully created"),
             @ApiResponse(code = 400, message = "Validation exception"),
             @ApiResponse(code = 404, message = "Comment not found"),
             @ApiResponse(code = 500, message = "Application failed to process the request")

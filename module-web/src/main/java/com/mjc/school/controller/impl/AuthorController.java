@@ -53,14 +53,14 @@ public class AuthorController implements ModifiedBaseController<AuthorUpdateDto,
     })
     @Override
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     public AuthorDto getById(@PathVariable Long id) {
         return authorService.readById(id);
     }
 
     @ApiOperation(value = "Crete author", response = AuthorDto.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Author successfully created"),
+            @ApiResponse(code = 201, message = "Author successfully created"),
             @ApiResponse(code = 400, message = "Validation exception"),
             @ApiResponse(code = 404, message = "Author not found"),
             @ApiResponse(code = 500, message = "Application failed to process the request")
